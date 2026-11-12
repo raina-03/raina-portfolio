@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raina S R | Full-Stack Python Developer</title>
+<meta name="description" content="Portfolio of Raina S R, an Electrical and Electronics Engineering graduate building full-stack web apps with Python and Django.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#0B1017; --surface:#141B27; --surface2:#19222F; --ink:#E8ECF4; --muted:#9BA7BC; --line:#263145;
+  --accent:#7C9CFF; --accent-ink:#0B1017; --live:#6EE0B8; --live-bg:#10332A;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Figtree","Segoe UI",system-ui,sans-serif;
+}
+:root[data-theme="light"]{
+  --paper:#F1F3F6; --surface:#FFFFFF; --surface2:#F7F8FB; --ink:#141A26; --muted:#4B5568; --line:#CBD2DE;
+  --accent:#2F5BEA; --accent-ink:#FFFFFF; --live:#0B7A5E; --live-bg:#DDF3EA;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.65 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0}
+
+/* header */
+header{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:3.75rem}
+.logo{font:700 1.25rem var(--display);text-decoration:none}
+nav{display:flex;gap:1.5rem;align-items:center}
+nav a{text-decoration:none;color:var(--muted);font-weight:500}
+nav a:hover{color:var(--ink)}
+.theme{background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:.3rem .8rem;font:500 .9rem var(--body);cursor:pointer}
+
+/* hero */
+.hero{padding:5.5rem 0 4rem}
+.hero h1{font-size:clamp(2.75rem,8vw,5.5rem);font-weight:700;letter-spacing:-.03em;max-width:14ch}
+.hero p.lead{font-size:clamp(1.15rem,2.2vw,1.4rem);max-width:34rem;margin:1.5rem 0 0;color:var(--muted)}
+.trace{display:block;width:100%;max-width:640px;height:auto;margin:2.5rem 0 2rem;overflow:visible}
+.trace path{fill:none;stroke:var(--accent);stroke-width:3;stroke-linejoin:round;stroke-dasharray:900;stroke-dashoffset:900;animation:draw 1.8s .2s ease-out forwards}
+.trace circle{fill:var(--accent);opacity:0;animation:pop .3s 1.9s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{to{opacity:1}}
+.actions{display:flex;flex-wrap:wrap;gap:.9rem}
+.btn{display:inline-block;padding:.75rem 1.4rem;border-radius:8px;font-weight:600;text-decoration:none;border:2px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{color:var(--ink);border-color:var(--line)}
+.btn:hover{border-color:var(--ink)}
+
+/* sections */
+section{padding:4rem 0;border-top:1px solid var(--line)}
+section>.wrap>h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:2rem;letter-spacing:-.02em}
+.about p{max-width:40rem;margin:0 0 1.1rem}
+
+.more{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.5rem;display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.card h3{font-size:1.35rem;margin-bottom:.6rem}
+.card p{margin:0 0 .9rem;color:var(--muted);font-size:1rem}
+.card ul.feat{margin:0 0 1rem;padding-left:1.1rem;color:var(--muted);font-size:.97rem}
+.card ul.feat li{margin-bottom:.2rem}
+.chips{list-style:none;margin:auto 0 1.2rem;padding:0;display:flex;flex-wrap:wrap;gap:.4rem}
+.chips li{background:var(--surface2);border:1px solid var(--line);color:var(--ink);font-size:.82rem;font-weight:500;padding:.2rem .65rem;border-radius:999px}
+.gh{align-self:flex-start;display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.1rem;border-radius:8px;border:1px solid var(--line);background:var(--surface2);color:var(--ink);font-weight:600;font-size:.95rem;text-decoration:none}
+.gh:hover{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.gh svg{width:18px;height:18px;fill:currentColor}
+@media (max-width:980px){.more{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.more{grid-template-columns:1fr}}
+
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* skills */
+dl{margin:0;display:grid;grid-template-columns:9rem 1fr;gap:1rem 2rem}
+dt{font-weight:600}
+dd{margin:0;color:var(--muted)}
+
+.edus{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem}
+.edu{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.5rem 1.75rem}
+.edu .yr{margin-top:.4rem;font-size:.95rem}
+.edu h3{font-size:1.35rem;margin-bottom:.3rem}
+.edu p{margin:0;color:var(--muted)}
+
+/* contact */
+.contact p{max-width:34rem;margin:0 0 1.5rem}
+.mail{font:700 clamp(1.4rem,4vw,2.2rem) var(--display);word-break:break-all}
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+
+@media (max-width:760px){
+  dl{grid-template-columns:1fr;gap:.2rem}
+  dd{margin-bottom:1rem}
+  nav{gap:1rem}
+  .hero{padding-top:3.5rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .trace path{animation:none;stroke-dashoffset:0}
+  .trace circle{animation:none;opacity:1}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">Raina S R</a>
+    <nav aria-label="Main">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+      <button class="theme" id="theme" type="button" aria-label="Switch colour theme">Theme</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <h1>I build web apps with Python and Django.</h1>
+    <p class="lead">I’m Raina, an Electrical and Electronics Engineering graduate from Kerala, building full-stack web apps with Python and Django.</p>
+    <svg class="trace" viewBox="0 0 640 60" aria-hidden="true">
+      <path d="M0 12 H220 L250 42 H520 L548 14 H620"/>
+      <circle cx="628" cy="14" r="8"/>
+    </svg>
+    <div class="actions">
+      <a class="btn primary" href="#projects">See my projects</a>
+      <!-- Upload your resume PDF to the repo as resume.pdf -->
+      <a class="btn ghost" href="resume.pdf">Download resume</a>
+    </div>
+  </div>
+
+  <section id="about" class="about">
+    <div class="wrap">
+      <h2>About</h2>
+      <p>I studied Electrical and Electronics Engineering and now build full-stack web applications with Python and Django.</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+
+      <div class="more">
+        <article class="card">
+          <h3>E-commerce: Seller &amp; Buyer Platform</h3>
+          <p>An e-commerce web application with separate seller and buyer functionalities.</p>
+          <ul class="feat">
+            <li>Seller and buyer registration and login</li>
+            <li>Seller product management</li>
+            <li>Product browsing for buyers</li>
+            <li>Shopping cart</li>
+            <li>Checkout and order placement</li>
+            <li>Order tracking and management</li>
+          </ul>
+          <ul class="chips" aria-label="Technologies"><li>Python</li><li>Django</li><li>HTML</li><li>CSS</li><li>Bootstrap</li><li>SQLite</li></ul>
+          <a class="gh" href="https://github.com/raina-03/ecommerce-seller-buyer" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>GitHub<span class="sr"> repository for E-commerce Seller &amp; Buyer Platform</span></a>
+        </article>
+        <article class="card">
+          <h3>My Blogspace</h3>
+          <p>A Django-based blogging web application that allows users to register, log in, create blog posts, and manage their content.</p>
+          <ul class="chips" aria-label="Technologies"><li>Python</li><li>Django</li><li>HTML</li><li>CSS</li><li>SQLite</li></ul>
+          <a class="gh" href="https://github.com/raina-03/my-blogspace" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>GitHub<span class="sr"> repository for My Blogspace</span></a>
+        </article>
+        <article class="card">
+          <h3>Library Management System</h3>
+          <p>A Django-based web application developed to manage library operations and book records.</p>
+          <ul class="chips" aria-label="Technologies"><li>Python</li><li>Django</li><li>HTML</li><li>CSS</li><li>SQLite</li></ul>
+          <a class="gh" href="https://github.com/raina-03/library-management-system" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>GitHub<span class="sr"> repository for Library Management System</span></a>
+        </article>
+        <article class="card">
+          <h3>CropZo</h3>
+          <p>A platform that connects farmers directly with consumers, with dashboards for managing inventory and orders.</p>
+          <ul class="chips" aria-label="Technologies"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+        </article>
+        <article class="card">
+          <h3>Organic Foods store</h3>
+          <p>A responsive e-commerce site with product listings and a mobile-friendly layout.</p>
+          <ul class="chips" aria-label="Technologies"><li>HTML</li><li>CSS</li><li>Bootstrap</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <dl>
+        <dt>Backend</dt><dd>Python, Django, Django REST Framework</dd>
+        <dt>Frontend</dt><dd>HTML, CSS, JavaScript, Bootstrap, Tailwind CSS</dd>
+        <dt>Databases</dt><dd>SQLite, MySQL</dd>
+        <dt>Tools</dt><dd>Git, GitHub, VS Code</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <h2>Education</h2>
+      <div class="edus">
+        <article class="edu">
+          <h3>B.Tech in Electrical and Electronics Engineering</h3>
+          <p>Muslim Association College of Engineering, Venjaramoodu</p>
+          <p class="yr">Passed out 2025</p>
+        </article>
+        <article class="edu">
+          <h3>Python Full Stack Development</h3>
+          <p>Edure Learning</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <p>I’m looking for a junior full-stack Python or Django role. Email me and I’ll reply.</p>
+      <a class="mail" href="mailto:rainaaami595@gmail.com">rainaaami595@gmail.com</a>
+      <p style="margin-top:1.5rem"><a href="https://github.com/raina-03">GitHub</a> · Kerala, India</p>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© 2026 Raina S R</div></footer>
+
+<script>
+(function(){
+  var root=document.documentElement,btn=document.getElementById("theme");
+  try{var s=localStorage.getItem("theme");if(s)root.setAttribute("data-theme",s)}catch(e){}
+  btn.addEventListener("click",function(){
+    var dark=root.getAttribute("data-theme")!=="light";
+    var next=dark?"light":"dark";
+    root.setAttribute("data-theme",next);
+    try{localStorage.setItem("theme",next)}catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
